@@ -1,33 +1,22 @@
-# Java Application Bootstrap Script
+# Java 应用守护启动脚本
 
-一个 **生产级 Java 应用守护启动脚本**，适用于 **Spring Boot / 普通 Java Jar** 项目，支持：
+一个功能完善的 Java 应用守护启动脚本，提供自动重启、日志轮转、进程监控等功能，适用于生产环境部署。
 
-- 应用启动 / 停止 / 重启 / 状态查看
-- **异常退出自动拉起（watchdog）**
-- **日志自动切割（防止 nohup.out 无限增大）**
-- 严格 Shell 模式（`set -euo pipefail`）
-- 适配 **CentOS / Ubuntu / ARM / x86**
+## 🚀 功能特性
 
----
+- ✅ **自动启动** - 自动查找并启动目录下的最新 JAR 文件
+- ✅ **进程守护** - Watchdog 监控，应用异常退出时自动重启
+- ✅ **日志轮转** - 当日志文件超过 100MB 时自动切割备份
+- ✅ **优雅停止** - 支持平滑停止应用，避免数据丢失
+- ✅ **状态监控** - 实时查看应用运行状态
+- ✅ **性能优化** - 预设 G1GC、字符串去重等 JVM 优化参数
+- ✅ **环境检测** - 自动检测操作系统和 Java 版本信息
 
-## 📌 适用场景
+## 📋 系统要求
 
-- 单机部署 Java 后台服务
-- 无 systemd / 不想写 service 文件
-- 需要 **进程守护 + 自动重启**
-- Kafka / 摄像头数据 / 后台消费程序
-- 边缘节点 / 私有化部署
+- **操作系统**: Linux (CentOS/RHEL/Ubuntu/Debian 等)
+- **Java版本**: Java 8+ 
+- **Shell**: Bash (支持 set -euo pipefail)
+- **权限**: 需要有文件读写和进程管理权限
 
----
 
-## 📂 目录结构
-
-```text
-app/
-├── bootstrap.sh
-├── your-app-1.0.0.jar
-├── app.log
-├── app.log.1
-├── app.pid
-├── watchdog.pid
-└── .stopped
