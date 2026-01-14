@@ -20,6 +20,17 @@
 - **权限**: 需要有文件读写和进程管理权限
 
 
+## 📊 启动日志示例
+
+```text
+[2026-01-10 10:12:01] OS: CentOS Linux 7
+[2026-01-10 10:12:01] Java: java version "1.8.0_382"
+[2026-01-10 10:12:01] JAVA_OPTS: -Xms1g -Xmx1g ...
+[2026-01-10 10:12:01] JAR: your-app.jar
+[2026-01-10 10:12:01] 启动应用 your-app.jar
+[2026-01-10 10:12:02] watchdog 启动 PID=12345
+```
+
 
 
 ## 🎯 使用指南
@@ -207,9 +218,9 @@ A: 调整 `MAX_LOG_SIZE` 或增加 `LOG_BACKUPS` 数量。
 
 欢迎提交 Issue 和 Pull Request 来改进脚本功能。
 
-## 📄 许可证
+## 📄 License
 
-MIT License - 请参阅 LICENSE 文件了解详细信息。
+MIT License
 
 ## 🆘 支持
 
